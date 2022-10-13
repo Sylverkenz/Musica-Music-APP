@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Musica App used worldwide as a reliable media player"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="images/favicon-32x32.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>MUSICA | Music App</title>
+    <script
+      src="https://kit.fontawesome.com/cdb61a6f94.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body class="font-sans bg-[#1d2123]">
+    <div class="relative h-auto">
+      <header
+        class="header bg-transparent lg:top-0 lg:left-[0rem] p-[2.4rem] flex items-center gap-[3.5rem] lg:pl-[3rem] h-[8rem] w-full overflow-hidden"
+      >
+        <div class="logobox ml-16 sm:ml-32 lg:ml-0">
+          <img src="images/logo.svg" alt="logo" class="logo" />
+        </div>
+        <button
+          class="searchbtn absolute top-[2rem] right-[2rem] text-white-opaque lg:right-0 lg:top-0 lg:relative"
+        >
+          <span class="text-[2.5rem] lg:text-[2.5rem]"
+            ><i class="fa-solid fa-magnifying-glass"></i
+          ></span>
+        </button>
+        <form
+          action="#"
+          class="header__searchbox text-white absolute top-[2.4rem] right-[5rem] sm:right-16 lg:right-0 lg:top-0 lg:relative z-[5] flex lg:block w-[60%] lg:w-auto lg:-translate-x-[140%] opacity-0"
+        >
+          <input
+            type="text"
+            name="search"
+            placeholder="Search artist or songname"
+            id="search"
+            class="header__search bg-transparent font-[600] text-[1.4rem] w-full lg:w-[30rem] placeholder:text-opacity-25 focus:outline-none focus:outline-white-opaque focus:outline-2 rounded-full py-1 px-4 duration-300"
+            required
+          />
+          <button
+            for="search"
+            type="submit"
+            class="header__searchbtn inline-block lg:ml-0 lg:mr-[2rem] text-[1.4rem] text-[#1d2123] font-bold bg-[#FACD66] rounded-full px-4"
+          >
+            <span class="text-[2rem] lg:text-[1.6rem]"
+              ><i class="fa-solid fa-arrow-right"></i
+            ></span>
+          </button>
+        </form>
+      </header>
+
+      <main class="main flex w-full">
+        <aside
+          class="sidebar w-[9.6rem] py-[2.4rem] bg-transparent flex flex-col items-center gap-[3.2rem] z-10 lg:absolute top-[6rem]"
+        >
+          <label
+            for="checkbox"
+            class="menu fixed top-10 sm:top-8 left-8 sm:left-16 lg:hidden z-50"
+            ><span class="text-white text-[2.5rem] toggle sm:text-[3rem]"
+              ><i class="fa-solid fa-bars"></i></span
+          ></label>
+          <input type="checkbox" class="checkbox hidden" id="checkbox" />
+          <div
+            class="nav__background lg:hidden h-full close bg-[#1a1e1f] z-[40] fixed top-0 left-0 duration-500"
+          ></div>
+          <nav
+            class="navigation close flex flex-col lg:gap-8 fixed top-[10%] lg:top-[13.5%] lg:left-[1.5%] left-[10%] z-50 lg:z-20 text-[2.8rem] lg:text-[1.7rem] duration-500"
+          >
+            <ul
+              class="navigation--primary px-[1.6rem] py-[2rem] lg:bg-[#1a1e1f] text-[#EFEEE0] text-opacity-25 rounded-full flex flex-col gap-[4rem] lg:gap-[2.5rem]"
+            >
+              <li class="nav__items">
+                <a
+                  href="#"
+                  class="navlink navlink--home navlink--active"
+                  data-id="home"
+                  ><i class="fa-solid fa-house"></i
+                  ><span
+                    class="ml-16 lg:hidden text-[2rem] capitalize font-bold"
+                    >home</span
+                  ></a
+                >
+              </li>
+              <li class="nav__items">
+                <a
+                  href="#"
+                  class="navlink navlink--colleections"
+                  data-id="collections"
+                  ><i class="fa-solid fa-compact-disc"></i
+                  ><span
+                    class="ml-16 lg:hidden text-[2rem] capitalize font-bold"
+                    >my collections</span
+                  ></a
+                >
+              </li>
+              <li class="nav__items">
+                <a href="#" class="navlink navlink--radio" data-id="radio"
+                  ><i class="fa-solid fa-radio"></i
+                  ><span
+                    class="ml-16 lg:hidden text-[2rem] capitalize font-bold"
+                    >radio</span
+                  ></a
+                >
+              </li>
+              <li class="nav__items">
+                <a href="#" class="navlink navlink--video" data-id="video"
+                  ><i class="fa-solid fa-film"></i
+                  ><span
+                    class="ml-16 lg:hidden text-[2rem] capitalize font-bold"
+                    >music videos</span
+                  ></a
+                >
+              </li>
+            </ul>
+            <ul
+              class="navigation--secondary px-[1.6rem] py-[2rem] lg:bg-[#1a1e1f] text-[#EFEEE0] text-opacity-25 rounded-full flex flex-col gap-[4rem] lg:gap-[2.5rem]"
+            >
+              <li class="nav__items">
+                <a href="#" class="navlink navlink--profile"
+                  ><i class="fa-solid fa-user"></i
+                  ><span
+                    class="ml-16 lg:hidden text-[2rem] capitalize font-bold"
+                    >my profile</span
+                  ></a
+                >
+              </li>
+              <li class="nav__items">
+                <a href="#" class="navlink navlink--logout"
+                  ><i class="fa-solid fa-arrow-right-from-bracket"></i
+                  ><span
+                    class="ml-16 lg:hidden text-[2rem] capitalize font-bold"
+                    >logout</span
+                  ></a
+                >
+              </li>
+            </ul>
+          </nav>
+        </aside>
+
+        <article
+          id="home"
+          class="content content--home content--active hidden w-full bg-[#1D2123] absolute top-0 left-0 text-white py-[9rem] -z-10 overflow-hidden"
+        >
+          <section
+            class="hero-section hero flex flex-col lg:flex-row justify-between items-start gap-[4.5rem] lg:px-[9rem] pb-[2rem] overflow-hidden"
+          >
+            <div class="hero__wrapper px-8 sm:px-16 lg:px-0">
+              <figure
+                class="hero__header w-[100%] lg:max-w-[700px] h-[45rem] sm:h-[35rem] flex p-[3rem] lg:p-[4rem] sm:pb-0 lg:pb-0 rounded-[3.5rem]"
+              >
+                <div class="header__textcontent w-[90%] sm:w-[45%]">
+                  <p class="text-[1.2rem] capitalize mb-[20rem] sm:mb-[6rem]">
+                    curated playlist
+                  </p>
+                  <h1 class="text-[3.5rem] font-bold">R & B Hits</h1>
+                  <p
+                    class="text-[1.4rem] mb-[4.5rem] sm:mb-[6rem] leading-[120%]"
+                  >
+                    All mine, Lie again, Petty call me everyday, Out of time, No
+                    love, Bad habit, and so much more
+                  </p>
+                  <div class="flex gap-[6rem] lg:gap-[3rem] items-center">
+                    <figure class="clients flex">
+                      <img src="images/user.jpg" alt="" />
+                      <img src="images/user-1.jpg" alt="" />
+                      <img src="images/user-2.jpg" alt="" />
+                      <img src="images/user-3.jpg" alt="" />
+                      <img src="images/user-4.jpg" alt="" />
+                    </figure>
+                    <p
+                      class="inline-flex items-center text-[2.4rem] lg:text-[1.4rem]"
+                    >
+                      <span class="mr-1"
+                        ><i class="fa-solid fa-heart"></i
+                      ></span>
+                      33k Likes
+                    </p>
+                  </div>
+                </div>
+                <img
+                  src="images/headerimg.svg"
+                  alt=""
+                  class="header__img hidden sm:block"
+                />
+              </figure>
+            </div>
+
+            <div
+              class="hero__topcharts text-white w-[41rem] sm:w-[84rem] lg:w-[35%]"
+            >
+              <h2
+                class="topcharts__title capitalize text-[2rem] lg:text-[2.4rem] font-bold mb-[1.4rem] lg:-mt-4 ml-8 lg:ml-0"
+              >
+                top charts
+              </h2>
+              <div class="wrapper w-full overflow-x-scroll px-8 lg:px-0">
+                <div class="flex gap-[1.7rem] lg:block w-max lg:w-auto">
+                  <article
+                    class="topcharts__chart1 lg:flex lg:flex-row items-center p-[1.6rem] bg-[#1A1E1F] rounded-[2rem] mb-[1.2rem] w-[32rem] relative lg:w-auto"
+                  >
+                    <img
+                      src="images/topchart1.svg"
+                      alt=""
+                      class="charts__img w-[10rem] h-[10rem] lg:w-[6.4rem] lg:h-[6.4rem] mb-[1.5rem] lg:mb-0"
+                    />
+                    <div class="lg:ml-6">
+                      <a
+                        href="#charts1"
+                        class="charts__link capitalize text-[1.7rem] mb-[2.4rem] lg:mb-0"
+                      >
+                        golden age of 80s<span
+                          class="block opacity-50 text-[1.2rem]"
+                          >sean swadder</span
+                        >
+                      </a>
+                      <p class="charts__duration text-[1.2rem] tracking-widest">
+                        2:34:45
+                      </p>
+                    </div>
+                    <span
+                      class="text-[#FACD66] text-[1.4rem] w-[4rem] h-[4rem] rounded-full border border-[rgba(255,255,255,0.1)] grid place-items-center absolute top-[1.6rem] right-[1.6rem] lg:top-0 lg:right-0 lg:relative lg:ml-auto"
+                      ><i class="fa-solid fa-heart"></i
+                    ></span>
+                  </article>
+                  <article
+                    class="topcharts__chart2 lg:flex lg:flex-row items-center p-[1.6rem] bg-[#1A1E1F] rounded-[2rem] mb-[1.2rem] w-[32rem] relative lg:w-auto"
+                  >
+                    <img
+                      src="images/topchart2.svg"
+                      alt=""
+                      class="charts__img w-[10rem] h-[10rem] lg:w-[6.4rem] lg:h-[6.4rem] mb-[1.5rem] lg:mb-0"
+                    />
+                    <div class="lg:ml-6">
+                      <a
+                        href="#charts2"
+                        class="charts__link capitalize text-[1.7rem] mb-[2.4rem] lg:mb-0"
+                      >
+                        Reggae “n” blues<span
+                          class="block opacity-50 text-[1.2rem]"
+                          >Dj YK mule</span
+                        >
+                      </a>
+                      <p class="text-[1.2rem] tracking-widest">1:02:42</p>
+                    </div>
+                    <span
+                      class="text-[#FACD66] text-[1.4rem] w-[4rem] h-[4rem] rounded-full border border-[rgba(255,255,255,0.1)] grid place-items-center absolute top-[1.6rem] right-[1.6rem] lg:top-0 lg:right-0 lg:relative lg:ml-auto"
+                      ><i class="fa-solid fa-heart"></i
+                    ></span>
+                  </article>
+                  <article
+                    class="lg:flex lg:flex-row items-center p-[1.6rem] bg-[#1A1E1F] rounded-[2rem] mb-[1.2rem] w-[32rem] relative lg:w-auto"
+                  >
+                    <img
+                      src="images/topchart3.svg"
+                      alt=""
+                      class="charts__img w-[10rem] h-[10rem] lg:w-[6.4rem] lg:h-[6.4rem] mb-[1.5rem] lg:mb-0"
+                    />
+                    <div class="lg:ml-6">
+                      <a
+                        href="#charts3"
+                        class="charts__link block capitalize text-[1.7rem] mb-[2.4rem] lg:mb-0"
+                      >
+                        Tomorrow’s tunes<span
+                          class="block opacity-50 text-[1.2rem]"
+                          >Obi Datti</span
+                        >
+                      </a>
+                      <p class="text-[1.2rem] tracking-widest">2:01:25</p>
+                    </div>
+                    <span
+                      class="text-[#FACD66] text-[1.4rem] w-[4rem] h-[4rem] rounded-full border border-[rgba(255,255,255,0.1)] grid place-items-center absolute top-[1.6rem] right-[1.6rem] lg:top-0 lg:right-0 lg:relative lg:ml-auto"
+                      ><i class="fa-solid fa-heart"></i
+                    ></span>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section
+            class="playlist-section py-[2rem] w-full overflow-hidden lg:px-[9rem] lg:pr-[7.8rem]"
+          >
+            <h2
+              class="playlist__title capitalize text-[2rem] lg:text-[2.4rem] font-bold mb-[1.4rem] mt-4 ml-8 lg:ml-0"
+            >
+              your playlist
+            </h2>
+            <div class="wrapper w-full overflow-x-scroll px-8 lg:px-0">
+              <div
+                class="playlist__songslide flex lg:flex-wrap gap-[2.5rem] w-max lg:w-fit"
+              >
+                <!-- <figure class="song-info">
+                  <img
+                    src="images/bad-to-me.png"
+                    alt=""
+                    class="w-[15rem] h-[15rem] rounded-[2.5rem]"
+                  />
+                  <p class="text-[1.4rem] mt-4">Bad to me</p>
+                </figure> -->
+              </div>
+            </div>
+          </section>
+
+          <section
+            class="section-newreleases pt-[2rem] pb-[8rem] w-full overflow-hidden lg:px-[9rem] lg:pr-[7.8rem]"
+          >
+            <h2
+              class="newreleases__title capitalize text-[2rem] lg:text-[2.4rem] font-bold mb-[1.4rem] mt-4 ml-8 lg:ml-0"
+            >
+              new releases
+            </h2>
+            <div class="wrapper w-full overflow-x-scroll px-8 lg:px-0">
+              <div
+                class="newreleases__songslide flex lg:flex-wrap gap-x-[2.5rem] gap-y-[4rem] w-max lg:w-fit"
+              >
+                <figure class="song-info">
+                  <img
+                    src="images/musicimage1.svg"
+                    alt=""
+                    class="w-[15rem] h-[15rem] rounded-[2.5rem]"
+                  />
+                  <p class="text-[1.4rem] mt-4">Life in a bubble</p>
+                </figure>
+                <figure class="song-info">
+                  <img
+                    src="images/musicimage2.svg"
+                    alt=""
+                    class="w-[15rem] h-[15rem] rounded-[2.5rem]"
+                  />
+                  <p class="text-[1.4rem] mt-4">mountain</p>
+                </figure>
+                <figure class="song-info">
+                  <img
+                    src="images/musicimage3.svg"
+                    alt=""
+                    class="w-[15rem] h-[15rem] rounded-[2.5rem]"
+                  />
+                  <p class="text-[1.4rem] mt-4">Limits</p>
+                </figure>
+                <figure class="song-info">
+                  <img
+                    src="images/musicimage4.svg"
+                    alt=""
+                    class="w-[15rem] h-[15rem] rounded-[2.5rem]"
+                  />
+                  <p class="text-[1.4rem] mt-4">Everything’s black</p>
+                </figure>
+                <figure class="song-info">
+                  <img
+                    src="images/musicimage5.svg"
+                    alt=""
+                    class="w-[15rem] h-[15rem] rounded-[2.5rem]"
+                  />
+                  <p class="text-[1.4rem] mt-4">Cancelled</p>
+                </figure>
+                <figure class="song-info">
+                  <img
+                    src="images/musicimage6.svg"
+                    alt=""
+                    class="w-[15rem] h-[15rem] rounded-[2.5rem]"
+                  />
+                  <p class="text-[1.4rem] mt-4">Nomad</p>
+                </figure>
+                <figure class="song-info">
+                  <img
+                    src="images/musicimage1.svg"
+                    alt=""
+                    class="w-[15rem] h-[15rem] rounded-[2.5rem]"
+                  />
+                  <p class="text-[1.4rem] mt-4">Life in a bubble</p>
+                </figure>
+              </div>
+            </div>
+          </section>
+
+          <article
+            class="popup__charts charts1 opacity-0 overflow-y-scroll invisible py-[8rem] px-8 lg:px-[9rem] absolute top-0 left-0 w-full h-full target:opacity-100 target:visible duration-300"
+            id="charts1"
+          >
+            <div class="chartswrapper w-full h-full">
+              <a
+                href="#home"
+                class="block text-8xl absolute top-[14rem] lg:top-0 right-0"
+                >&times</a
+              >
+              <section
+                class="charts__hero flex flex-col lg:flex-row gap-[3rem] lg:items-end"
+              >
+                <img
+                  src="images/topchart1.svg"
+                  alt=""
+                  class="charts__heroimg w-[90%] lg:w-[28rem] lg:h-[28rem]"
+                />
+                <div class="text-content max-w-[530px]">
+                  <h3 class="text-[#A4C7C6] text-[3.5rem] font-bold">
+                    Golden Age Of 80s
+                  </h3>
+                  <p class="text-[#EFEEE0] text-[1.4rem] mb-4">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
+                    aliquam, purus sit amet luctus venenatis
+                  </p>
+                  <p
+                    class="duration text-[#EFEEE0] text-[1.4rem] mb-[2.4rem] lg:mb-[4rem]"
+                  >
+                    64 songs ~ 16 hrs+
+                  </p>
+                  <div class="flex lg:gap-4 justify-between lg:justify-start">
+                    <button
+                      class="playbtn bg-[rgba(255,255,255,0.07)] backdrop-blur-[5px] flex items-center gap-4 px-6 py-3 rounded-full"
+                    >
+                      <span class="text-[#FACD66] text-[1.4rem]"
+                        ><i class="fa-solid fa-circle-play"></i
+                      ></span>
+                      <span class="text-[1.2rem]">Play all</span>
+                    </button>
+                    <button
+                      class="bg-[rgba(255,255,255,0.07)] backdrop-blur-[5px] flex items-center gap-4 px-6 py-3 rounded-full"
+                    >
+                      <span class="w-[1.4rem] h-[1.4rem]"
+                        ><img src="images/collection.svg" alt=""
+                      /></span>
+                      <span class="text-[1.2rem]">Add to collection</span>
+                    </button>
+                    <button
+                      class="bg-[rgba(255,255,255,0.07)] backdrop-blur-[5px] flex items-center gap-4 px-6 py-3 rounded-full"
+                    >
+                      <p class="flex items-center gap-4">
+                        <span class="text-red-700 text-[1.4rem]"
+                          ><i class="fa-solid fa-heart"></i></span
+                        ><span class="text-[1.2rem] lg:hidden">Like</span>
+                      </p>
+                    </button>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </article>
+
+          <article
+            class="popup__charts charts2 opacity-0 overflow-y-scroll invisible py-[8rem] px-8 lg:px-[9rem] absolute top-0 left-0 w-full h-full target:opacity-100 target:visible duration-300"
+            id="charts2"
+          >
+            <div class="chartswrapper w-full h-full">
+              <a
+                href="#home"
+                class="block text-8xl absolute top-[14rem] lg:top-0 right-0"
+                >&times</a
+              >
+              <section
+                class="flex flex-col lg:flex-row gap-[3rem] lg:items-end"
+              >
+                <img
+                  src="images/topchart2.svg"
+                  alt=""
+                  class="charts__heroimg w-[90%] lg:w-[28rem] lg:h-[28rem]"
+                />
+                <div class="text-content max-w-[530px]">
+                  <h3 class="text-[#A4C7C6] text-[3.5rem] font-bold">
+                    Reggae “N” Blues
+                  </h3>
+                  <p class="text-[#EFEEE0] text-[1.4rem] mb-4">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
+                    aliquam, purus sit amet luctus venenatis
+                  </p>
+                  <p
+                    class="duration text-[#EFEEE0] text-[1.4rem] mb-[2.4rem] lg:mb-[4rem]"
+                  >
+                    64 songs ~ 16 hrs+
+                  </p>
+                  <div class="flex lg:gap-4 justify-between lg:justify-start">
+                    <button
+                      class="playbtn bg-[rgba(255,255,255,0.07)] backdrop-blur-[5px] flex items-center gap-4 px-6 py-3 rounded-full"
+                    >
+                      <span class="text-[#FACD66] text-[1.4rem]"
+                        ><i class="fa-solid fa-circle-play"></i
+                      ></span>
+                      <span class="text-[1.2rem]">Play all</span>
+                    </button>
+                    <button
+                      class="bg-[rgba(255,255,255,0.07)] backdrop-blur-[5px] flex items-center gap-4 px-6 py-3 rounded-full"
+                    >
+                      <span class="w-[1.4rem] h-[1.4rem]"
+                        ><img src="images/collection.svg" alt=""
+                      /></span>
+                      <span class="text-[1.2rem]">Add to collection</span>
+                    </button>
+                    <button
+                      class="bg-[rgba(255,255,255,0.07)] backdrop-blur-[5px] flex items-center gap-4 px-6 py-3 rounded-full"
+                    >
+                      <p class="flex items-center gap-4">
+                        <span class="text-red-700 text-[1.4rem]"
+                          ><i class="fa-solid fa-heart"></i></span
+                        ><span class="text-[1.2rem] lg:hidden">Like</span>
+                      </p>
+                    </button>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </article>
+
+          <article
+            class="popup__charts charts3 opacity-0 overflow-y-scroll invisible py-[8rem] px-8 lg:px-[9rem] absolute top-0 left-0 w-full h-full target:opacity-100 target:visible duration-300"
+            id="charts3"
+          >
+            <div class="chartswrapper w-full h-full">
+              <a
+                href="#home"
+                class="block text-8xl absolute top-[14rem] lg:top-0 right-0"
+                >&times</a
+              >
+              <section
+                class="flex flex-col lg:flex-row gap-[3rem] lg:items-end"
+              >
+                <img
+                  src="images/chartimage3.svg"
+                  alt=""
+                  class="charts__heroimg w-[90%] lg:w-[28rem] lg:h-[28rem]"
+                />
+                <div class="text-content max-w-[530px]">
+                  <h3 class="text-[#A4C7C6] text-[3.5rem] font-bold">
+                    Tomorrow’s tunes
+                  </h3>
+                  <p class="text-[#EFEEE0] text-[1.4rem] mb-4">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
+                    aliquam, purus sit amet luctus venenatis
+                  </p>
+                  <p
+                    class="duration text-[#EFEEE0] text-[1.4rem] mb-[2.4rem] lg:mb-[4rem]"
+                  >
+                    64 songs ~ 16 hrs+
+                  </p>
+                  <div class="flex lg:gap-4 justify-between lg:justify-start">
+                    <button
+                      class="playbtn bg-[rgba(255,255,255,0.07)] backdrop-blur-[5px] flex items-center gap-4 px-6 py-3 rounded-full"
+                    >
+                      <span class="text-[#FACD66] text-[1.4rem]"
+                        ><i class="fa-solid fa-circle-play"></i
+                      ></span>
+                      <span class="text-[1.2rem]">Play all</span>
+                    </button>
+                    <button
+                      class="bg-[rgba(255,255,255,0.07)] backdrop-blur-[5px] flex items-center gap-4 px-6 py-3 rounded-full"
+                    >
+                      <span class="w-[1.4rem] h-[1.4rem]"
+                        ><img src="images/collection.svg" alt=""
+                      /></span>
+                      <span class="text-[1.2rem]">Add to collection</span>
+                    </button>
+                    <button
+                      class="bg-[rgba(255,255,255,0.07)] backdrop-blur-[5px] flex items-center gap-4 px-6 py-3 rounded-full"
+                    >
+                      <p class="flex items-center gap-4">
+                        <span class="text-red-700 text-[1.4rem]"
+                          ><i class="fa-solid fa-heart"></i></span
+                        ><span class="text-[1.2rem] lg:hidden">Like</span>
+                      </p>
+                    </button>
+                  </div>
+                </div>
+              </section>
+              <section class="musiclist py-20 pb-40">
+                <!-- <article
+                  class="song flex lg:justify-between items-center px-4 py-2 lg:pr-12 bg-[rgba(255,255,255,0.07)] backdrop-blur-[5px] rounded-[1.5rem] mb-4"
+                >
+                  <figure class="flex items-center gap-8 mr-[1.4rem] lg:mr-0">
+                    <img
+                      src="images/musicimage1.svg"
+                      alt=""
+                      class="w-20 h-20 rounded-full"
+                    />
+                    <span class="hidden lg:block text-[1.4rem] text-gray-500"
+                      ><i class="fa-solid fa-heart"></i
+                    ></span>
+                  </figure>
+
+                  <div
+                    class="lg:flex justify-between lg:w-[37%] mr-auto lg:mr-0"
+                  >
+                    <p class="text-[1.2rem] capitalize">
+                      let me love you - <span class="artiste">krisx</span>
+                    </p>
+                    <p class="text-[1.2rem] capitalize">single</p>
+                  </div>
+
+                  <div
+                    class="flex flex-col-reverse items-end lg:items-center lg:flex-row lg:gap-[25rem] lg:justify-end lg:w-[40%]"
+                  >
+                    <p class="text-[1.2rem] capitalize">1:30</p>
+                    <span class="text-[1.2rem] text-[#FACD66]">
+                      <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </span>
+                  </div>
+                </article> -->
+              </section>
+            </div>
+          </article>
+        </article>
+
+        <article
+          id="collections"
+          class="content content--collections absolute top-0 left-0 w-full hidden py-[9rem] px-8 md:px-0 lg:px-[9rem] -z-10"
+        >
+          <div
+            class="text-[1.4rem] mb-[2.4rem] flex justify-between lg:justify-start gap-[2.4rem]"
+          >
+            <button
+              class="text-[#1d2123] bg-[#facd66] px-[1.8rem] py-4 rounded-full w-full lg:w-auto"
+            >
+              My Collection
+            </button>
+            <button
+              class="text-[#EFEEE0] bg-transparent border borer px-[2rem] py-4 rounded-full opacity-50 w-full lg:w-auto"
+            >
+              Likes
+            </button>
+          </div>
+          <div
+            class="collection-wrapper flex flex-col md:flex-row md:flex-wrap gap-[2.4rem] md:gap-8 lg:gap-[3.5rem] sm:px-[12rem] md:px-0 lg:px-[0]"
+          >
+            <!-- <figure
+              class="collection group relative lg:w-[21rem] h-[25rem] overflow-hidden rounded-[2rem]"
+            >
+              <img
+                src="images/bad-to-me.png"
+                alt=""
+                class="w-full h-full lg:group-hover:scale-[1.2] duration-300 object-cover"
+              />
+              <div
+                class=" z-10 overlay flex items-center absolute bottom-0 w-full p-8 text-[#EFEEE0] lg:translate-y-[4rem] lg:group-hover:translate-y-0 duration-300 capitalize"
+              >
+                <div>
+                  <h4 class="text-[2.4rem] mb-8">
+                    Limits<span class="block text-[1rem] opacity-75"
+                      >John Watts</span
+                    >
+                  </h4>
+                  <p class="text-[1.2rem]">23m Likes</p>
+                </div>
+                <button
+                  class="w-[4rem] h-[4rem] lg:opacity-0 text-[1.4rem] rounded-full bg-[#FACD66] ml-auto -mb-8 group-hover:opacity-100 duration-300"
+                >
+                  <i class="fa-solid fa-play"></i>
+                </button>
+              </div>
+            </figure> -->
+          </div>
+        </article>
+        <article
+          class="content absolute top-0 left-0 content--radio w-full h-screen bg-yellow-700 hidden place-items-center text-9xl text-[#facd66] -z-10"
+        >
+          RADIO
+        </article>
+        <article
+          class="content absolute top-0 left-0 content--video w-full h-screen bg-[orangered] hidden place-items-center text-9xl text-[#facd66] -z-10"
+        >
+          VIDEOS
+        </article>
+      </main>
+    </div>
+
+    <div
+      class="music-container flex items-center justify-between text-white px-[3rem] lg:px-[9.6rem] py-[.5rem] bg-[rgba(29,33,35,0.3)] bg-opacity-30 backdrop-blur-lg fixed top-[88%] left-0 lg:z-30 w-full"
+    >
+      <div class="music-info lg:w-[20%]">
+        <article class="flex items-center">
+          <figure
+            class="coverbox w-[6.5rem] h-[6.5rem] overflow-hidden rounded-full relative"
+          >
+            <img src="" alt="" class="cover" />
+          </figure>
+          <div
+            class="info text-[1.6rem] font-bold ml-[1.4rem] tracking-[.1rem]"
+          >
+            <p class="title"></p>
+            <span class="artist block text-[1.2rem] opacity-50"></span>
+          </div>
+        </article>
+      </div>
+      <audio src="music/bad-to-me.mp3" class="audio"></audio>
+
+      <div
+        class="music-nav flex flex-col gap-[1rem] items-center lg:w-[50%] justify-self-center"
+      >
+        <article class="flex gap-[4.5rem] text-[1.6rem] font-thin">
+          <button type="button" id="shuffle" class="shuffle hidden lg:block">
+            <i class="fa-solid fa-shuffle"></i>
+          </button>
+          <button type="button" id="backward" class="backward hidden lg:block">
+            <i class="fa-solid fa-backward-step"></i>
+          </button>
+          <button
+            type="button"
+            id="play"
+            class="w-[4.5rem] h-[4.5rem] text-[2.5rem] rounded-full bg-[#FACD66]"
+          >
+            <i class="fa-solid fa-play"></i>
+          </button>
+          <button type="button" id="forward">
+            <i class="fa-solid fa-forward-step"></i>
+          </button>
+          <button type="button" id="repeat" class="repeat hidden lg:block">
+            <i class="fa-solid fa-repeat"></i>
+          </button>
+        </article>
+        <article
+          class="progress-container bg-white bg-opacity-10 h-[4px] w-full rounded-full opacity-0 invisible duration-300"
+        >
+          <div
+            class="progress-bar bg-[#FACD66] h-full w-[0%] rounded-full relative"
+          ></div>
+        </article>
+      </div>
+      <div class="music-volume hidden lg:flex items-center gap-4 w-[20%]">
+        <span class="text-[1.4rem]"
+          ><i class="fa-solid low fa-volume-low"></i
+        ></span>
+        <article
+          class="volume-container bg-white bg-opacity-10 h-[4px] w-[80%] rounded-full duration-300"
+        >
+          <div
+            class="volume-bar bg-[#FACD66] h-full w-[0%] rounded-full relative"
+          ></div>
+        </article>
+        <span class="text-[1.4rem]"
+          ><i class="fa-solid fa-volume-high"></i
+        ></span>
+      </div>
+    </div>
+  </body>
+</html>
